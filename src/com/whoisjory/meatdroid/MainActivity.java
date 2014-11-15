@@ -28,11 +28,7 @@ import android.widget.Toast;
 
         WebView myWebView = (WebView) findViewById(R.id.webView);
 
-        myWebView.setWebChromeClient(new WebChromeClient() {
-                public void onPermissionRequest(PermissionRequest pr) {
-                    pr.grant(pr.getResources());
-                }
-        });
+        myWebView.setWebChromeClient(new MyWebChromeClient());
 
         WebSettings webSettings = myWebView.getSettings();
 
