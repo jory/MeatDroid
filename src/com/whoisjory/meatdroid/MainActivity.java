@@ -19,6 +19,7 @@ import android.webkit.WebView;
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
+            WebView.enableSlowWholeDocumentDraw();
         }
 
         WebView myWebView = (WebView) findViewById(R.id.webView);
