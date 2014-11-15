@@ -4,15 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.PermissionRequest;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 
 @SuppressLint("SetJavaScriptEnabled") public class MainActivity extends Activity {
@@ -39,7 +34,6 @@ import android.widget.Toast;
 
         myWebView.loadUrl("https://chat.meatspac.es");
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
