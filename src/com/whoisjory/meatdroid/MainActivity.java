@@ -1,17 +1,43 @@
 package com.whoisjory.meatdroid;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.PermissionRequest;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 
-public class MainActivity extends Activity {
+@SuppressLint("SetJavaScriptEnabled") public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(true);
+        }
+
+        WebView myWebView = (WebView) findViewById(R.id.webView);
+
+        myWebView.setWebChromeClient(new WebChromeClient() {
+                public void onPermissionRequest(PermissionRequest pr) {
+                    pr.grant(pr.getResources());
+                }
+        });
+
+        WebSettings webSettings = myWebView.getSettings();
+
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
+
+        myWebView.loadUrl("https://chat.meatspac.es");
     }
 
 
