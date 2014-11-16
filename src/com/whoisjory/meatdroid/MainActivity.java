@@ -14,7 +14,7 @@ import android.webkit.WebView;
 
     private WebView myWebView;
         
-    @Override
+    @SuppressLint("NewApi") @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
