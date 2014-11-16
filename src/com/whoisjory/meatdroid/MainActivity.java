@@ -12,6 +12,8 @@ import android.webkit.WebView;
 
 @SuppressLint("SetJavaScriptEnabled") public class MainActivity extends Activity {
 
+    private WebView myWebView;
+        
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,7 @@ import android.webkit.WebView;
             WebView.enableSlowWholeDocumentDraw();
         }
 
-        WebView myWebView = (WebView) findViewById(R.id.webView);
+        myWebView = (WebView) findViewById(R.id.webView);
 
         myWebView.setWebChromeClient(new MyWebChromeClient());
 
@@ -51,6 +53,8 @@ import android.webkit.WebView;
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_refresh) {
+            myWebView.reload();
         }
         return super.onOptionsItemSelected(item);
     }
