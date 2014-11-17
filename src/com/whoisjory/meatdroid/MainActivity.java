@@ -13,6 +13,7 @@ import android.webkit.WebView;
 @SuppressLint("SetJavaScriptEnabled") public class MainActivity extends Activity {
 
     private WebView myWebView;
+    private String lurkFn;
         
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,10 @@ import android.webkit.WebView;
             return true;
         } else if (id == R.id.action_refresh) {
             myWebView.reload();
+        } else if (id == R.id.action_lurk) {
+            String lurkFn = "javascript:function unSad () {document.querySelector('#sad-browser').style.display = '' }";
+            myWebView.loadUrl(lurkFn.toString());
+            myWebView.loadUrl("javascript:unSad()");
         }
         return super.onOptionsItemSelected(item);
     }
