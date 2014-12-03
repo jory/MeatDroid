@@ -55,9 +55,7 @@ import android.webkit.WebView;
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_refresh) {
+        if (id == R.id.action_refresh) {
             myWebView.reload();
         } else if (id == R.id.action_lurk) {
             String lurkFn = "javascript:function unSad () {document.querySelector('#sad-browser').style.display = '' }";
